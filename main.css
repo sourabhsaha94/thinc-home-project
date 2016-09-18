@@ -82,11 +82,18 @@ body {
 }
 
 
-#sharees, #exportmethods {
+#sharees, #exportmethods, #journalentries {
 	margin:10px;
 }
 
-#sharees .listitem:hover , #exportmethods .listitem:hover {
+#journalentries .listitem span.date {
+	display:inline-block;
+	float:right;
+	font-style:italic;
+	font-size:.9em;
+}
+
+#sharees .listitem:hover , #exportmethods .listitem:hover, #journalentries .listitem:hover {
 	background-color:lightyellow;
 }
 
