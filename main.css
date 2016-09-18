@@ -1,0 +1,61 @@
+
+body {
+	font-family:arial;
+}
+
+#page {
+	position:relative;
+	margin:auto;
+	width:320px;
+	border:2px solid black;
+	border-radius:10px;
+	height:480px;
+}
+
+#page .title {
+	margin:10px;
+	font-size:1.2em;
+}
+
+#main {
+	position:absolute;
+	top:40px;
+	width:320;
+	height:420px;
+	background-color:#eee;
+}
+
+#header, #footer {
+	position:absolute;
+	width:100%;
+	left:0px;
+	height:40px;
+	background-color:#ccf;
+	z-index:100;
+}
+
+#header {	
+	top:0px;
+	border-radius:8px 8px 0px 0px;
+	border-bottom: 1px solid black;
+}
+
+#footer {
+	bottom:0px;
+	border-radius:0px 0px 8px 8px;
+	border-top: 1px solid black;
+}
+
+#header button, #footer button {
+	float:right;
+	height:30px;
+	margin:5px 10px;
+	padding:2px 20px;
+	background-color:#ddd;
+	border:1px solid #777;
+	border-radius: 5px;
+}
+
+
+
+
