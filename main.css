@@ -29,10 +29,11 @@ body {
 #main {
 	position:absolute;
 	top:40px;
-	width:100%;
-	height:400px;
 	background-color:#eee;
 	overflow-y:auto;
+	height:400px;
+	width:320px;
+	padding:0px;
 }
 
 #header, #footer {
@@ -76,8 +77,18 @@ body {
 
 .listitem {
 	margin:10px;
+	border-bottom:1px solid #ddd;
+	padding:10px;
 }
 
+
+#sharees, #exportmethods {
+	margin:10px;
+}
+
+#sharees .listitem:hover , #exportmethods .listitem:hover {
+	background-color:lightyellow;
+}
 
 #linkableapps a {
 	float:right;
@@ -90,6 +101,13 @@ body {
 	text-align:center;
 }
 
+button.additem {
+	display:block;
+	width:90%;
+	height:30px;
+	text-align:center;
+	margin:auto;
+}
 
 
 
