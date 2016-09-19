@@ -1,69 +1,406 @@
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="main.css" />
-		<script type="text/javascript" href="main.js"></script>
-	</head>
-	<body>
-		<div id="page">
-			<div id="header">
-				<!-- demo content -->
-				<div class="title">Journal</div>
-				<!-- /demo content -->
-			</div>
-			<div id="main">
+<!doctype html>
+<html><head>
+    <meta charset="utf-8">
+    <title>HOME</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Carlos Alvarez - Alvarez.is">
 
-				<div id="journalentries">
-					<div class="listitem">
-						<button onclick="alert('Delete this entry.');">X</button>
-						<span onclick="alert('Edit permissions for this person.');">Diabetes Checkup</span>
-						<span class="date">01/03/2016</span>
-					</div>
-					<div class="listitem">
-						<button onclick="alert('Delete this entry.');">X</button>
-						<span onclick="alert('Edit permissions for this person.');">ER Visit</span>
-						<span class="date">01/01/2016</span>
-					</div>
-					<div class="listitem">
-						<button onclick="alert('Delete this entry.');">X</button>
-						<span onclick="alert('Edit permissions for this person.');">Call from Dr Middl...</span>
-						<span class="date">01/01/2016</span>
-					</div>
-					<div class="listitem">
-						<button onclick="alert('Delete this entry.');">X</button>
-						<span onclick="alert('Edit permissions for this person.');">Blood Test</span>
-						<span class="date">12/21/2015</span>
-					</div>
-					<div class="listitem">
-						<button onclick="alert('Delete this entry.');">X</button>
-						<span onclick="alert('Edit permissions for this person.');">Morning Leg Cra...</span>
-						<span class="date">11/19/2015</span>
-					</div>
-					<div class="listitem">
-						<button onclick="alert('Delete this entry.');">X</button>
-						<span onclick="alert('Edit permissions for this person.');">Annual Checkup</span>
-						<span class="date">10/01/2015</span>
-					</div>
-					<div class="listitem">
-						<button onclick="alert('Delete this entry.');">X</button>
-						<span onclick="alert('Edit permissions for this person.');">Dosage Confusio...</span>
-						<span class="date">09/08/2015</span>
-					</div>
-					<div class="listitem">
-						<button onclick="alert('Delete this entry.');">X</button>
-						<span onclick="alert('Edit permissions for this person.');">New Rx</span>
-						<span class="date">09/05/2015</span>
-					</div>
-					<div class="listitem">
-						<button class="additem" onclick="alert('Add a person to share with...');">+</button>
-					</div>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/font-style.css" rel="stylesheet">
+    <link href="css/flexslider.css" rel="stylesheet">
+
+    <script  src="https://code.jquery.com/jquery-3.1.0.js"></script><!--jquery latest api remember-->
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="js/lineandbars.js"></script>
+    
+	<script type="text/javascript" src="js/dash-charts.js"></script>
+	<script type="text/javascript" src="js/gauge.js"></script>
+	
+	<!-- NOTY JAVASCRIPT -->
+	<script type="text/javascript" src="js/noty/jquery.noty.js"></script>
+	<script type="text/javascript" src="js/noty/layouts/top.js"></script>
+	<script type="text/javascript" src="js/noty/layouts/topLeft.js"></script>
+	<script type="text/javascript" src="js/noty/layouts/topRight.js"></script>
+	<script type="text/javascript" src="js/noty/layouts/topCenter.js"></script>
+	
+	<!-- You can add more layouts if you want -->
+	<script type="text/javascript" src="js/noty/themes/default.js"></script>
+    <!-- <script type="text/javascript" src="assets/js/dash-noty.js"></script> This is a Noty bubble when you init the theme-->
+	<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="js/jquery.flexslider.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="js/admin.js"></script>
+      
+    <style type="text/css">
+      body {
+        padding-top: 10px;
+      }
+    </style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+   
+
+  	<!-- Google Fonts call. Font Used Open Sans & Raleway -->
+	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
+  	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#btn-blog-next").click(function () {
+            $('#blogCarousel').carousel('next')
+        });
+        $("#btn-blog-prev").click(function () {
+            $('#blogCarousel').carousel('prev')
+        });
+
+        $("#btn-client-next").click(function () {
+            $('#clientCarousel').carousel('next')
+        });
+        $("#btn-client-prev").click(function () {
+            $('#clientCarousel').carousel('prev')
+        });
+
+    });
+
+    $(window).load(function () {
+
+        $('.flexslider').flexslider({
+            animation: "slide",
+            slideshow: true,
+            start: function (slider) {
+                $('body').removeClass('loading');
+            }
+        });
+    });
+
+</script>    
+  </head>
+  <body>
+  
+  	<!-- NAVIGATION MENU -->
+
+   <!-- <div class="navbar-nav navbar-inverse navbar-fixed-top ">
+        <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src="images/logo30.png" alt=""> Your H.O.M.E</a>
+        </div> 
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html"><i class="icon-home icon-white"></i> Home</a></li>                            
+              <li><a href="tables.html"><i class="icon-th icon-white"></i> Tables</a></li>
+              <li><a href="login.html"><i class="icon-lock icon-white"></i> Login</a></li>
+              <li><a href="user.html"><i class="icon-user icon-white"></i> User</a></li>
+
+            </ul>
+          </div><!--/.nav-collapse 
+        </div>
+    </div>-->
+
+    <div class="container">
+
+	  <!-- FIRST ROW OF BLOCKS -->     
+      <div class="row">
+         
+          <!-- USER PROFILE BLOCK -->
+      	<div class="row">
+
+ 	  <!-- ACCORDION BLOCK -->     
+			<div class="col-sm-3 col-lg-3">
+				<div class="dashboard-card">
+	      		<dtitle>JOURNAL</dtitle>
+	      		<hr>
+					<div class="accordion" id="accordion2">
+		                <div class="accordion-group">
+		           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                                    <div class="accordion-heading text-center">
+		                        
+		                        Appointments
+		                        
+                                    </div>
+                           </a>
+                                </div>
+                                    <p>
+		                    <div id="collapseOne" class="accordion-body collapse in">
+		                        <div class="accordion-inner">
+					
+                                            <p>  <button class="btnnew" data-toggle="modal" data-target="#myModal1">Diabetes checkup</button><br>
+		            <p>
+                            
+                                            <button class="btnnew" data-toggle="modal" data-target="#myModal2">ER Visit</button><br>
+                                            
+		            <p>
+                         
+                         
+                                            <button class="btnnew" data-toggle="modal" data-target="#myModal4">Blood test</button><br>
+		         <p>
+                                            <button class="btnnew" data-toggle="modal" data-target="#myModal8">New Rx</button><br>
+		         
+                                        </div>
+		                    </div>
+		                </div>
+		
+		                <div class="accordion-group">
+		                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+		                      
+                                    <div class="accordion-heading text-center">
+		                        Calls
+		                        <p>
+		                    </div>
+                                            </a>
+                                      
+		                    <div id="collapseTwo" class="accordion-body collapse">
+		                        <div class="accordion-inner">
+								
+                       <p>
+                                <button class="btnnew" data-toggle="modal" data-target="#myModal3">Call from Dr. Doom</button>
+		          <p>
+                        
+                                <button class="btnnew" data-toggle="modal" data-target="#myModal7">Dosage confusion</button>
+		        <p> 
+                            <button class="btnnew" data-toggle="modal" data-target="#myModal8">New Rx</button>
+		           <p>					</div>
+		                    </div>
+		                </div>
+		
+		                 <div class="accordion-group">
+	  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                                     <div class="accordion-heading text-center">
+		                      
+		                       Mood Diary
+		           <p>
+                                    </div>
+		                        </a>
+
+              <div id="collapseThree" class="accordion-body collapse">
+		                        <div class="accordion-inner">
+					
+                                <button class="btnnew" data-toggle="modal" data-target="#myModal5">Feeling low</button>
+		         <p>               </div>
+		                    </div>
+		                </div>
+		            </div><!--/accordion -->
 				</div>
+			</div>
+			
 
-			</div>
-			<div id="footer">
-				<!-- demo content -->
-				<a class="button right" href="dashboard.html">Done</a>
-				<!-- /demo content -->
-			</div>
-		</div>
-	</body>
-</html>
+
+		</div><!--/row -->
+     
+			
+			<!-- Modal -->
+			  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			          <h4 class="modal-title">Diabetes checkup</h4>
+			        </div>
+                                  <div class="modal-body">
+                                      Duke Hospital 9/16/2016
+                                  </div>
+			       <div class="modal-footer">
+			         		<input class="submit btn-success btn btn-large" type="submit" value="Edit">
+                                                <input class="submit btn-success btn btn-large" type="submit" value="Delete">
+			        </div>
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			  </div><!-- /.modal -->
+                          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			          <h4 class="modal-title">ER Visit</h4>
+			        </div>
+			        <div class="modal-body">
+                                      Duke Hospital 9/16/2016
+                                  </div>
+			       <div class="modal-footer">
+			         		<input class="submit btn-success btn btn-large" type="submit" value="Edit">
+                                                <input class="submit btn-success btn btn-large" type="submit" value="Delete">
+			        </div>
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			  </div><!-- /.modal -->
+                           <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			          <h4 class="modal-title">Call from Dr Doom</h4>
+			        </div>
+			        <div class="modal-body">
+                                      Confirmation of dosage 9/16/2016
+                                  </div>
+			       <div class="modal-footer">
+			         		<input class="submit btn-success btn btn-large" type="submit" value="Edit">
+                                                <input class="submit btn-success btn btn-large" type="submit" value="Delete">
+			        </div>
+			       
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			  </div><!-- /.modal -->
+                          <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			          <h4 class="modal-title">Blood Test</h4>
+			        </div>
+			       <div class="modal-body">
+                                      Normal (Reduce sugar intake)  9/16/2016
+                                  </div>
+			       <div class="modal-footer">
+			         		<input class="submit btn-success btn btn-large" type="submit" value="Edit">
+                                                <input class="submit btn-success btn btn-large" type="submit" value="Delete">
+			        </div>
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			  </div><!-- /.modal -->
+                          <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			          <h4 class="modal-title">Feeling low</h4>
+			        </div>
+			       <div class="modal-body">
+                                      Mom got hospitalized 9/16/2016
+                                  </div>
+			       <div class="modal-footer">
+			         		<input class="submit btn-success btn btn-large" type="submit" value="Edit">
+                                                <input class="submit btn-success btn btn-large" type="submit" value="Delete">
+			        </div>
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			  </div><!-- /.modal -->
+                          <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			          <h4 class="modal-title">Annual checkup</h4>
+			        </div>
+			       <div class="modal-body">
+                                      Washington DC 9/30/2016
+                                  </div>
+			       <div class="modal-footer">
+			         		<input class="submit btn-success btn btn-large" type="submit" value="Edit">
+                                                <input class="submit btn-success btn btn-large" type="submit" value="Delete">
+			        </div>
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			  </div><!-- /.modal -->
+                          <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			          <h4 class="modal-title">Dosage confusion</h4>
+			        </div>
+			       <div class="modal-body">
+                                      Called Dr. Doom 9/10/2016
+                                  </div>
+			       <div class="modal-footer">
+			         		<input class="submit btn-success btn btn-large" type="submit" value="Edit">
+                                                <input class="submit btn-success btn btn-large" type="submit" value="Delete">
+			        </div>
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			  </div><!-- /.modal -->
+                          <div class="modal fade" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			          <h4 class="modal-title">New Rx</h4>
+			        </div>
+			       <div class="modal-body">
+                                      Changed medicine for leg cramps 9/1/2016
+                                  </div>
+			       <div class="modal-footer">
+			         		<input class="submit btn-success btn btn-large" type="submit" value="Edit">
+                                                <input class="submit btn-success btn btn-large" type="submit" value="Delete">
+			        </div>
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			  </div><!-- /.modal -->
+ 	  		<!-- FAST CONTACT BLOCK -->     
+			
+     
+      <!-- DONUT CHART BLOCK -->
+       
+      <!-- DONUT CHART BLOCK -->
+      
+        
+       
+      </div><!-- /row -->
+	  <!-- SECOND ROW OF BLOCKS -->     
+      
+     
+ 
+	  <!-- THIRD ROW OF BLOCKS -->     
+      
+      
+	  <!-- FOURTH ROW OF BLOCKS -->     
+	
+      
+ 	  <!-- FOURTH ROW OF BLOCKS -->     
+		
+     
+      
+      
+	</div> <!-- /container -->
+	<div id="footerwrap">
+      	<footer class="clearfix"></footer>
+      	<div class="container">
+      		<div class="row">
+      			<div class="col-sm-12 col-lg-12">
+      			<button class="submit btn-success btn btn-large" data-toggle="modal" data-target="#myModal9">Add new entry</button>
+                        <button class="submit btn-success btn btn-large" onclick="location.href = 'dashboard.html';">Go Back</button>
+      			</div>
+                    <div class="modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			          <h4 class="modal-title">Add new entry</h4>
+			        </div>
+			       <div class="modal-body">
+                                      
+                                  </div>
+			       <div class="modal-footer">
+                                   <form class="cmxform" id="signupForm3" method="get" action="">
+						<fieldset>
+							<p>
+                                                            <input id="username" name="username" type="text" placeholder="Title" style="color:black;">
+								<input id="password" name="password" type="text" placeholder="Content" style="color:black;">
+							</p>
+								<input class="submit btn-success btn btn-large" type="submit" value="Submit">
+                                                <input class="submit btn-success btn btn-large" type="submit" value="Close">
+						</fieldset>
+					</form>
+			        </div>
+			         		
+			        </div>
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			  </div><!-- /.modal -->
+      		</div><!-- /row -->
+      	</div><!-- /container -->		
+	</div><!-- /footerwrap -->
+          
+</body></html>
